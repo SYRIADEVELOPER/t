@@ -1,16 +1,19 @@
 import json
 from telethon import TelegramClient, events
 
+# ضع توكن البوت هنا
+bot_token = "8249193765:AAFD3IjSCEAkfqwViXHRgRprYQksYZj6E_E"
+
+# قراءة القنوات والكلمات المحظورة من config.json
 with open("config.json", "r", encoding="utf-8") as f:
     config = json.load(f)
 
-api_id = config["api_id"]
-api_hash = config["api_hash"]
 source_channels = config["source_channels"]
 target_channel = config["target_channel"]
 blocked_words = [w.lower() for w in config["blocked_words"]]
 
-client = TelegramClient("forwarder", api_id, api_hash)
+# إنشاء العميل باستخدام البوت مباشرة
+client = TelegramClient('forwarder', api_id=0, api_hash='').start(bot_token=bot_token)
 
 def is_clean(text: str) -> bool:
     if not text:
@@ -34,5 +37,4 @@ async def handler(event):
         print(f"🚫 Blocked message: {message_text[:50]}")
 
 print("🚀 Bot is running...")
-client.start()
 client.run_until_disconnected()
