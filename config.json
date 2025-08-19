@@ -1,7 +1,7 @@
 {
   "api_id": 13073262,
   "api_hash": "7ea6c981a274b8515520d538c24b6a65",
-  "source_channels": ["AjaNews",
+  "source_channels": ["AjaNews"],
   "target_channel": "gxM_hack",
   "blocked_words": ["اعلان", "برعاية", "شعار_فلان", "للتواصل"]
 }
